@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -70,12 +71,12 @@ export default function RootLayout({
               </a>
             </div>
             <div className="govuk-header__content">
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="govuk-header__link govuk-header__service-name"
               >
                 Jingle bells
-              </a>
+              </Link>
             </div>
           </div>
         </header>

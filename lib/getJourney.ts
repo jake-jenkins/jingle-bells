@@ -27,12 +27,11 @@ type Stage = {
 
 export type Journey = {
   name: string,
-  description: string,
-  slug?: string,
-  stages?: Stage[]
+  stages: Stage[]
 }
 
-export async function getJourney(name: string, stageName?: string) {
+export async function getJourney(name: string, stageName: string) {
+
   const getData = await fs.readFile(
     path.join(process.cwd(), "journeys", `${name}.json`),
     "utf-8"
@@ -45,21 +44,38 @@ export async function getJourney(name: string, stageName?: string) {
   })
 
   return {
-    journey: data.name,
-    journeyDescription: data.description,
-    stage: stageName ? stageData[0] : data.stages[0].name
-  };
+    name: data.name,
+    stage: stageData[0]
+  }
+
+}
+
+async function getJourneySummary(name: string) {
+
+  const getData = await fs.readFile(
+    path.join(process.cwd(), "journeys", `${name}.json`),
+    "utf-8"
+  );
+
+  const data = JSON.parse(getData);
+
+  return {
+    name: data.name,
+    description: data.description,
+    startPage: data.stages[0].name
+  }
+
 }
 
 export async function getJourneys() {
   const filenames = await fs.readdir(path.join(process.cwd(), 'journeys'));
   const journeys = await Promise.all(filenames.map(async (filename) => {
     const journeyFilename = filename.replace('.json', '');
-    const journeyDetails = await getJourney(journeyFilename);
+    const journeyDetails = await getJourneySummary(journeyFilename);
     return {
-      slug: `${journeyFilename}/${journeyDetails.stage}`,
-      name: journeyDetails.journey,
-      description: journeyDetails.journeyDescription
+      slug: `${journeyFilename}/${journeyDetails.startPage}`,
+      name: journeyDetails.name,
+      description: journeyDetails.description
     }
   }))
   return journeys
