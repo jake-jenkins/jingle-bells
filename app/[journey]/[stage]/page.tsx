@@ -14,7 +14,6 @@ export default async function JourneyPage({
   return (
     <>
       <BackLink />
-      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         {content.stage?.components.map((component: any) => (
           <JingleBells key={component.id} type={component.type} props={component.props} />
         ))}
