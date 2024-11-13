@@ -1,7 +1,6 @@
 import { getJourney } from "@/lib/getJourney";
-import type { Component } from "@/lib/getJourney";
-import Link from "next/link";
 import BackLink from "@/lib/BackLink";
+import JingleBells from "@/components/JingleBells";
 
 export default async function JourneyPage({
   params,
@@ -15,17 +14,10 @@ export default async function JourneyPage({
   return (
     <>
       <BackLink />
-      <h1 className="govuk-heading-l">
-        {content.name} &gt; {content.stage?.name}
-      </h1>
-      <ul className="govuk-list govuk-list--bullet">
-        {content.stage?.components.map((component: Component) => (
-          <li key={component.id}>{component.type}</li>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        {content.stage?.components.map((component: any) => (
+          <JingleBells key={component.id} type={component.type} props={component.props} />
         ))}
-      </ul>
-      <Link href={content.stage?.nextPage || "#"} className="govuk-button">
-        Continue
-      </Link>
     </>
   );
 }

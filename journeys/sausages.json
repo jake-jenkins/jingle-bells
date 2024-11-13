@@ -9,40 +9,59 @@
         "cy": "Cyn i chi ddechrau"
       },
       "isForm": false,
-      "nextPage": "ip-numbers",
       "components": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "props": {
+            "level": "h1",
+            "content": {
+              "en":"Sausages",
+              "cy":"Os oes angen i chi adnewyddu mwy na dim ond patentau, defnyddiwch y gwasanaeth adnewyddu patent, nod masnach neu ddylunio cofrestredig."
+            }
+          }
+        },
         {
           "id": "pg1",
           "type": "paragraph",
-          "content": {
-            "en": "Use this service to renew patents. If you do not renew, you'll lose the protection on the patent.",
-            "cy": "Defnyddiwch y gwasanaeth hwn i adnewyddu patentau. Os na fyddwch yn adnewyddu, byddwch yn colli'r amddiffyniad ar y patent."
+          "props": {
+            "content": {
+              "en": "Use this service to renew patents. If you do not renew, you'll lose the protection on the patent.",
+              "cy": "Defnyddiwch y gwasanaeth hwn i adnewyddu patentau. Os na fyddwch yn adnewyddu, byddwch yn colli'r amddiffyniad ar y patent."
+            }
           }
         },
         {
           "id": "pg2",
           "type": "link",
-          "href": "https://google.com",
-          "target": "_blank",
-          "content": {
-            "en": "Check on the googles",
-            "cy": "Gwiriwch ar y googles"
+          "props": {
+            "href": "https://google.com",
+            "target": "_blank",
+            "content": {
+              "en": "Check on the googles",
+              "cy": "Gwiriwch ar y googles"
+            }
           }
         },
         {
           "id": "pg3",
           "type": "paragraph",
-          "content": {
-            "en": "If you need to renew more than just patents, use the renew a patent, trade mark or registered design service.",
-            "cy": "Os oes angen i chi adnewyddu mwy na dim ond patentau, defnyddiwch y gwasanaeth adnewyddu patent, nod masnach neu ddylunio cofrestredig."
+          "props": {
+            "content": {
+              "en": "If you need to renew more than just patents, use the renew a patent, trade mark or registered design service.",
+              "cy": "Os oes angen i chi adnewyddu mwy na dim ond patentau, defnyddiwch y gwasanaeth adnewyddu patent, nod masnach neu ddylunio cofrestredig."
+            }
           }
         },
         {
           "id": "continue-btn",
           "type": "button",
-          "content": {
-            "en": "Continue",
-            "cy": "Parhau"
+          "props": {
+            "href": "ip-numbers",
+            "content": {
+              "en": "Continue",
+              "cy": "Parhau"
+            }
           }
         }
       ]
@@ -54,36 +73,46 @@
         "cy": "Rhowch eich rhifau IP"
       },
       "isForm": true,
-      "nextPage": "new-address",
       "components": [
         {
           "id": "errors",
           "type": "error-summary",
-          "errors": [
-            {
-              "id": "ip-number",
-              "message": {
-                "en": "Enter a valid IP number",
-                "cy": "Rhowch rif IP dilys"
+          "props": {
+            "errors": [
+              {
+                "id": "ip-number",
+                "message": {
+                  "en": "Enter a valid IP number",
+                  "cy": "Rhowch rif IP dilys"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
-          "id": "address",
+          "id": "ip-numbers",
           "type": "textarea",
-          "validation": "textOnly",
-          "label": {
-            "en": "Enter your address",
-            "cy": "Rhowch eich cyfeiriad"
+          "props": {
+            "validation": "textOnly",
+            "hint": {
+              "en": "This is a hint",
+              "cy": "Jake jake jake"
+            },
+            "label": {
+              "en": "Enter your IP numbers",
+              "cy": "Rhowch eich cyfeiriad"
+            }
           }
         },
         {
           "id": "continue-btn",
           "type": "button",
-          "content": {
-            "en": "Continue",
-            "cy": "Parhau"
+          "props": {
+            "href": "new-address",
+            "content": {
+              "en": "Continue",
+              "cy": "Parhau"
+            }
           }
         }
       ]
@@ -95,36 +124,42 @@
         "cy": "Rhowch eich cyfeiriad newydd"
       },
       "isForm": true,
-      "nextPage": "check-your-answers",
       "components": [
         {
           "id": "errors",
           "type": "error-summary",
-          "errors": [
-            {
-              "id": "address",
-              "message": {
-                "en": "Enter a valid address",
-                "cy": "Rhowch gyfeiriad dilys"
+          "props": {
+            "errors": [
+              {
+                "id": "address",
+                "message": {
+                  "en": "Enter a valid address",
+                  "cy": "Rhowch gyfeiriad dilys"
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "id": "address",
           "type": "textarea",
-          "validation": "textOnly",
-          "label": {
-            "en": "Enter your address",
-            "cy": "Rhowch eich cyfeiriad"
+          "props": {
+            "validation": "textOnly",
+            "label": {
+              "en": "Enter your address",
+              "cy": "Rhowch eich cyfeiriad"
+            }
           }
         },
         {
-          "id": "continue-btn",
           "type": "button",
-          "content": {
-            "en": "Continue",
-            "cy": "Parhau"
+          "props": {
+            "id": "continue-btn",
+            "href": "check-your-answers",
+            "content": {
+              "en": "Continue",
+              "cy": "Parhau"
+            }
           }
         }
       ]
